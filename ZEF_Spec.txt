@@ -1,41 +1,50 @@
-XSzGlue_ChipletInfo_Exhange_Format (ZEF)
+zGlue Chiplet Info Exchange Format (ZEF)
+Version: 1.0
+Date: April 29, 2019
+Author: Jawad Nasrullah
+zGlue Inc, 883 N Shoreline Blvd, C200, Mountain View, CA 94043, USA
+Contact: jawad@zglue.com
 
-April 29, 2019
-Mountain View, CA
+<Released under ZEF License v. 1.0, A GPL copyleft variant for the purpose of open source.>
 
-zGlue, Inc. developed a simple chiplet model for use in zGlue's Chipbuilder software.  We published ChipBuilder at CES 2019 on January 09, 2019 and made parts of that data model public.  We are now collectively releasing the zGlue Chiplet Info Exchange Format (ZEF) as a formal open source specification to help the industry. The idea is that with a standard machine-readable description of Chiplets, it will help automate design and business process across companies. The spirit of this disclosure is to bring openness in the otherwise closed-source industry of chip design.  We are releasing this information under a open source GPL license--while others are free to use and build upon this platform, we request that all subsequent improvements and variations give credit to zGlue, Inc's original contribution in starting this effort.  We also request that the name of this spec be kept ZEF and the file extensions are kept to be .zef. 
+OUTLINE
 
-In this Repository your will find the following Items:
+1.0 Background
+2.0 File Formats
+3.0 ZEF Parameter Specification
+4.0 ZEF Examples
 
-1- A Specification for ZEF for the following TYPEs of data:
-   a) Mechanical
-   b) IO
-   c) Electrical
+DETAILS
 
-2- File Formats
-   ZEF contains a set of files.  The file name will following the format of <MPN>_TYPE.zef.  MPN stands for Manufacturer's Part Number which is a unique product identifier.  TYPE include from {mech, io, elect} but not limited and additional types can be defined.  The filename format should, however, be followed.
+1.0 Background:
+
+zGlue, Inc. developed a simple chiplet model for use in zGlue's Chipbuilder software. We are promoting this chiplet model for wider usage through open initiatives. We are now collectively releasing the zGlue Chiplet Info Exchange Format (ZEF) as a formal open source specification to help the industry. The idea is that with a standard machine-readable description of Chiplets, it will help automate design and business processes across companies when it comes to chiplet based business ecosystem. The spirit of this disclosure is to encourage openness in an otherwise closed-source industry of chip design. zGlue Inc is releasing this information under ZEF license, which is a variant of GPL v3 license. The zGlue chiplet information Exchange Format (“ZEF”) License is a free, copyleft license related to the description and implementation of an open file format (the zGlue chiplet information Exchange Format) to help standardize data exchange related to chiplets. While others are free to use and build upon this format, we request that all subsequent improvements and variations give credit to zGlue, Inc's original contribution in starting this effort.  We also request that the name of this spec be kept ZEF and the file extensions are kept to be .zef. 
+
+
+
+What is included in this Repository:
+-ZEF Specification (this file)
+-ZEF Examples
+-ZEF Copyleft License (ZEF Licnese v. 1.0)
+
+2.0 File Formats:
+
+ZEF contains a set of files.  The file name will following the format of <MPN>_TYPE.zef.  MPN stands for Manufacturer's Part Number which is a unique product identifier.  TYP\
+E include from {mech, io, elect} but not limited and additional types can be defined.  The filename format should, however, should be followed.
 
 For example for a hypothetical chiplet ZGL12345FC, the set of ZEF files include ZGL12345FC_mech.zef, ZGL12345FC_io.zef, ZGL12345FC_elect.zef and so forth.
 
-Each of these files will be an ASCII Text file.  Any kind of encryption of these files should be handled at a higher level. 
+Each of these files will be an ASCII Text file that structurally looks like a comma seperated variable (CSV) format.  Any kind of encryption of these files should be handled at a higher level.
 
 
 
+3.0 ZEF Parameter Specification:
 
-3- Example ZEF
-
-4- Copyleft (a type of Opensource Copyright) Notice
-
-5- A Readme file
+ZEF paramters are broken into three types, a) mechanical , b) io, c) electrical.  These parameter define the interfaces and outside characteristics of these chiplets.  Most of this information can be found in datasheets.
 
 
+3.1 ZEF Mechanical (Mech) Parameters
 
-
-
-
-ZEF Mechanical Parameters:
-
-<Released under ZEF License v. 1.0>
 
 Parameter Name = "Reference", units = N/A , Description = This parameter is reserved as a designator for the Chiplet in the chiplet library. This field will be left blank for a single chiplet but will be useful as an identifier in a library.
 
@@ -67,7 +76,6 @@ Parameter Name = "Thickness_z_min", units = microns, Description =Chiplet Thickn
 
 Parameter Name = "Thickness_z_max", units = microns, Description =Chiplet Thickness maximum value.  This can also be calculated as a typical value plus the relevant tolerance.
 
-
 Parameter Name = "Orientation_angle_ccw", units = degrees, Description = "Orientation angle measured in degrees. Possible options are 0 degrees, 90 degrees, 180 degrees, and 270 degrees. If pin A1 (or pin 1) is on the top left with respect to the IO map, the orientation angle is 0 degrees"
 
 Parameter Name = "Count_bump", units = integer, Description = Number of balls, or IOs in a chiplet.
@@ -91,3 +99,7 @@ Parameter Name = "Count_unpop_bumps", units = integer, Description = For a possi
 Parameter Name = "Mold Material", units = ASCII, Description = For a molded chiplet, name the mold material.
 
 Parameter Name = "Reflow Profile", units = ASCII, Description = The recommended reflow profile for SMT or Flipchip process. It should be provided as a list of time vs temperature pairs.
+
+
+3.2 ZEF IO Parameters
+3.3 ZEF Electrical (Elect) Parameters
