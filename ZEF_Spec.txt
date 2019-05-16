@@ -1,0 +1,93 @@
+XSzGlue_ChipletInfo_Exhange_Format (ZEF)
+
+April 29, 2019
+Mountain View, CA
+
+zGlue, Inc. developed a simple chiplet model for use in zGlue's Chipbuilder software.  We published ChipBuilder at CES 2019 on January 09, 2019 and made parts of that data model public.  We are now collectively releasing the zGlue Chiplet Info Exchange Format (ZEF) as a formal open source specification to help the industry. The idea is that with a standard machine-readable description of Chiplets, it will help automate design and business process across companies. The spirit of this disclosure is to bring openness in the otherwise closed-source industry of chip design.  We are releasing this information under a open source GPL license--while others are free to use and build upon this platform, we request that all subsequent improvements and variations give credit to zGlue, Inc's original contribution in starting this effort.  We also request that the name of this spec be kept ZEF and the file extensions are kept to be .zef. 
+
+In this Repository your will find the following Items:
+
+1- A Specification for ZEF for the following TYPEs of data:
+   a) Mechanical
+   b) IO
+   c) Electrical
+
+2- File Formats
+   ZEF contains a set of files.  The file name will following the format of <MPN>_TYPE.zef.  MPN stands for Manufacturer's Part Number which is a unique product identifier.  TYPE include from {mech, io, elect} but not limited and additional types can be defined.  The filename format should, however, be followed.
+
+For example for a hypothetical chiplet ZGL12345FC, the set of ZEF files include ZGL12345FC_mech.zef, ZGL12345FC_io.zef, ZGL12345FC_elect.zef and so forth.
+
+Each of these files will be an ASCII Text file.  Any kind of encryption of these files should be handled at a higher level. 
+
+
+
+
+3- Example ZEF
+
+4- Copyleft (a type of Opensource Copyright) Notice
+
+5- A Readme file
+
+
+
+
+
+
+ZEF Mechanical Parameters:
+
+<Released under ZEF License v. 1.0>
+
+Parameter Name = "Reference", units = N/A , Description = This parameter is reserved as a designator for the Chiplet in the chiplet library. This field will be left blank for a single chiplet but will be useful as an identifier in a library.
+
+Parameter Name = "MPN", units = N/A, Description = Manufacturer's part number. Refer to unique SKU and ordering information.
+
+Parameter Name = "SMT_compatible", units = boolean, Description = A predicate that tells the reader whether this part is compatible with SMT or not.  Valid values are 0 or 1.  For most of the chiplets, this field will be set to 1.
+
+Parameter Name = "Width_x_typ", units = microns, Description = Chiplet width typical value.
+
+Parameter Name = "Width_x_tolerance", units = microns, Description = Chiplet width tolerance. Typically listed as a plus/minus value in the datasheet.
+
+Parameter Name = "Width_x_min", units = microns, Description =Chiplet width minimum value.  This can also be calculated as a typical value minus the relevant tolerance.
+
+Parameter Name = "Width_x_max", units = microns, Description =Chiplet width maximum value.  This can also be calculated as a typical value plus the relevant tolerance.
+
+Parameter Name = "Length_y_typ", units = microns, Description = Chiplet length typical value.
+
+Parameter Name = "Length_y_tolerance", units = microns, Description = Chiplet length tolerance. Typically listed as a plus minus value in the datasheet.
+
+Parameter Name = "Length_y_min", units = microns, Description =Chiplet length minimum value.  This can also be calculated as a typical value minus the relevant tolerance.
+
+Parameter Name = "Length_y_max", units = microns, Description =Chiplet length maximum value.  This can also be calculated as a typical value plus the relavent tolerance.
+
+Parameter Name = "Thickness_z_typ", units = microns, Description = Chiplet Thickness typical value.  Thickness is measured from the top to the bottom of the pins or solder balls.
+
+Parameter Name = "Thickness_z_tolerance", units = microns, Description = Chiplet Thickness tolerance. Typically listed as a plus/minus value in the datasheet.
+
+Parameter Name = "Thickness_z_min", units = microns, Description =Chiplet Thickness minimum value.  This can also be calculated as a typical value minus the relevant tolerance.
+
+Parameter Name = "Thickness_z_max", units = microns, Description =Chiplet Thickness maximum value.  This can also be calculated as a typical value plus the relevant tolerance.
+
+
+Parameter Name = "Orientation_angle_ccw", units = degrees, Description = "Orientation angle measured in degrees. Possible options are 0 degrees, 90 degrees, 180 degrees, and 270 degrees. If pin A1 (or pin 1) is on the top left with respect to the IO map, the orientation angle is 0 degrees"
+
+Parameter Name = "Count_bump", units = integer, Description = Number of balls, or IOs in a chiplet.
+
+Parameter Name = "Bump_pitch", units = microns, Description = Nominal Distance between the center's of 2 consecutive balls. This parameter can be used to populate IO maps that are geometrically regular.
+
+Parameter Name = "Bump_pitch_tolerance", units = microns, Description = Tolerance value for bump pitch.
+
+Parameter Name = "Bump_dia", units = microns, Description = Typical diameter of the solder balls (Refers to horizontal footprint).
+
+Parameter Name = "Bump_dia_tol", units = microns, Description = Tolerance value for bump diameter.
+
+Parameter Name = "Bump_thickness", units = microns, Description = Typical thickness of the bumps or balls (Refers to z direction).
+
+Parameter Name = "Bump_thickness", units = microns, Description = Typical thickness of the bumps or balls (Refers to z direction).
+
+Parameter Name = "Bump_thickness_tol", units = microns, Description = Tolerance value for the thickness of the bumps or balls.
+
+Parameter Name = "Count_unpop_bumps", units = integer, Description = For a possibly regular bump pattern, count the unpopulated bumps.
+
+Parameter Name = "Mold Material", units = ASCII, Description = For a molded chiplet, name the mold material.
+
+Parameter Name = "Reflow Profile", units = ASCII, Description = The recommended reflow profile for SMT or Flipchip process. It should be provided as a list of time vs temperature pairs.
