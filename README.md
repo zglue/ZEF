@@ -1,152 +1,23 @@
-zGlue Chiplet Info Exchange Format (ZEF)
+#ZEF
+#zGlue Chiplet Info Exchange Format
+
 Version: 1.0
 Date: May 16, 2019
 Author: Jawad Nasrullah
 zGlue Inc, 883 N Shoreline Blvd, C200, Mountain View, CA 94043, USA
 Contact: jawad@zglue.com
 
-<Released under ZEF License v. 1.0, a copyleft license adapted from the GNU General Public License (GPL) 3.0 for the purpose of open source development.>
+_Released under ZEF License v. 1.0, a copyleft license adapted from the GNU General Public License (GPL) 3.0 for the purpose of open source development._
 
-OUTLINE
+##Background:
 
-1.0 Background
-2.0 File Formats
-3.0 ZEF Parameter Specification
+zGlue, Inc. developed a simple chiplet model for use in zGlue's Chipbuilder software. We are promoting this chiplet model for wider usage through open initiatives. We are now collectively releasing the zGlue Chiplet Info Exchange Format (ZEF) as a formal open source specification to help the industry. The idea is that with a standard machine-readable description of Chiplets, it will help automate design and business processes across companies when it comes to chiplet based business ecosystem. The spirit of this disclosure is to encourage openness in an otherwise closed-source industry of chip design. zGlue Inc is releasing this information under ZEF license, which is adapted from the GPL v3 license. ZEF License is a free, copyleft license related to the description and implementation of an open file format (ZEF) to help standardize data exchange related to chiplets. While others are free to use and build upon this format, we request that all subsequent improvements and variations give attribution to zGlue, Inc's original contribution in starting this effort.  We also request that the name of this spec be kept ZEF and the file extensions are kept to be ".zef". 
 
 
-DETAILS
+##What is included in this Repository:
 
-1.0 Background:
+*ZEF Specification (this file)
+*ZEF Copyleft License (ZEF License v. 1.0)
 
-zGlue, Inc. developed a simple chiplet model for use in zGlue's Chipbuilder software. We are promoting this chiplet model for wider usage through open initiatives. We are now collectively releasing the zGlue Chiplet Info Exchange Format (ZEF) as a formal open source specification to help the industry. The idea is that with a standard machine-readable description of Chiplets, it will help automate design and business processes across companies when it comes to chiplet based business ecosystem. The spirit of this disclosure is to encourage openness in an otherwise closed-source industry of chip design. zGlue Inc is releasing this information under ZEF license, which is adapted from the GPL v3 license. ZEF License is a free, copyleft license related to the description and implementation of an open file format (ZEF) to help standardize data exchange related to chiplets. While others are free to use and build upon this format, we request that all subsequent improvements and variations give attribution to zGlue, Inc's original contribution in starting this effort.  We also request that the name of this spec be kept ZEF and the file extensions are kept to be ``.zef". 
-
-
-What is included in this Repository:
--ZEF Specification (this file)
--ZEF Copyleft License (ZEF License v. 1.0)
-
-2.0 File Formats:
-
-ZEF contains a set of files.  The file name will follow the format of <MPN>_<TYPE>.zef.  MPN stands for Manufacturer's Part Number which is a unique product identifier.  TYPE include from {mech, io, elect} but not limited and additional types can be defined.  The filename format should, however, should be followed.
-
-For example, for a hypothetical chiplet ZGL12345FC, the set of ZEF files include ZGL12345FC_mech.zef, ZGL12345FC_io.zef, ZGL12345FC_elect.zef and so forth.
-
-Each of these files will be an ASCII Text file that structurally looks like a comma separated variable (CSV) format.  Any kind of encryption of these files should be handled at a higher level.
-
-
-
-3.0 ZEF Parameter Specification:
-
-ZEF parameters are broken into three types, a) mechanical, b) io, c) electrical.  These parameters define the interfaces and outside characteristics of these chiplets.  Most of this information can be found in datasheets.
-
-
-3.1 ZEF Mechanical (Mech) Parameters
-
-
-Parameter Name = "Reference", units = N/A, Description = This parameter is reserved as a designator for the Chiplet in the chiplet library. This field will be left blank for a single chiplet but will be useful as an identifier in a library.
-
-Parameter Name = "MPN", units = N/A, Description = Manufacturer's part number. Refer to unique SKU and ordering information.
-
-Parameter Name = "SMT_compatible", units = Boolean, Description = A predicate that tells the reader whether this part is compatible with SMT or not.  Valid values are 0 or 1.  For most of the chiplets, this field will be set to 1.
-
-Parameter Name = "Width_x_typ", units = microns, Description = Chiplet width typical value.
-
-Parameter Name = "Width_x_tolerance", units = microns, Description = Chiplet width tolerance. Typically listed as a plus/minus value in the datasheet.
-
-Parameter Name = "Width_x_min", units = microns, Description =Chiplet width minimum value.  This can also be calculated as a typical value minus the relevant tolerance.
-
-Parameter Name = "Width_x_max", units = microns, Description =Chiplet width maximum value.  This can also be calculated as a typical value plus the relevant tolerance.
-
-Parameter Name = "Length_y_typ", units = microns, Description = Chiplet length typical value.
-
-Parameter Name = "Length_y_tolerance", units = microns, Description = Chiplet length tolerance. Typically listed as a plus minus value in the datasheet.
-
-Parameter Name = "Length_y_min", units = microns, Description =Chiplet length minimum value.  This can also be calculated as a typical value minus the relevant tolerance.
-
-Parameter Name = "Length_y_max", units = microns, Description =Chiplet length maximum value.  This can also be calculated as a typical value plus the relavent tolerance.
-
-Parameter Name = "Thickness_z_typ", units = microns, Description = Chiplet Thickness typical value.  Thickness is measured from the top to the bottom of the pins or solder balls.
-
-Parameter Name = "Thickness_z_tolerance", units = microns, Description = Chiplet Thickness tolerance. Typically listed as a plus/minus value in the datasheet.
-
-Parameter Name = "Thickness_z_min", units = microns, Description =Chiplet Thickness minimum value.  This can also be calculated as a typical value minus the relevant tolerance.
-
-Parameter Name = "Thickness_z_max", units = microns, Description =Chiplet Thickness maximum value.  This can also be calculated as a typical value plus the relevant tolerance.
-
-Parameter Name = "Orientation_angle_ccw", units = degrees, Description = "Orientation angle measured in degrees. Possible options are 0 degrees, 90 degrees, 180 degrees, and 270 degrees. If pin A1 (or pin 1) is on the top left with respect to the IO map, the orientation angle is 0 degrees"
-
-Parameter Name = "Count_bump", units = integer, Description = Number of balls, or IOs in a chiplet.
-
-Parameter Name = "Bump_pitch", units = microns, Description = Nominal Distance between the centers of 2 consecutive balls. This parameter can be used to populate IO maps that are geometrically regular.
-
-Parameter Name = "Bump_pitch_tolerance", units = microns, Description = Tolerance value for bump pitch.
-
-Parameter Name = "Bump_dia", units = microns, Description = Typical diameter of the solder balls (Refers to horizontal footprint).
-
-Parameter Name = "Bump_dia_tol", units = microns, Description = Tolerance value for bump diameter.
-
-Parameter Name = "Bump_thickness", units = microns, Description = Typical thickness of the bumps or balls (Refers to z direction).
-
-Parameter Name = "Bump_thickness", units = microns, Description = Typical thickness of the bumps or balls (Refers to z direction).
-
-Parameter Name = "Bump_thickness_tol", units = microns, Description = Tolerance value for the thickness of the bumps or balls.
-
-Parameter Name = "Count_unpop_bumps", units = integer, Description = For a possibly regular bump pattern, count the unpopulated bumps.
-
-Parameter Name = "Mold Material", units = ASCII, Description = For a molded chiplet, name the mold material.
-
-Parameter Name = "Reflow Profile", units = ASCII, Description = The recommended reflow profile for SMT or Flipchip process. It should be provided as a list of time vs temperature pairs.
-
-
-3.2 ZEF IO Parameters
-
-
-Parameter Name = "Reference", units = N/A, Description = This parameter is reserved as a designator for the Chiplet in the chiplet library. This field will be left blank for a single chiplet but will be useful as an identifier in a library.
-
-Parameter Name = "MPN", units = N/A, Description = Manufacturer's part number. Refer to unique SKU and ordering information.
-
-Parameter Name = "Pin_Number", units = N/A, Description = Index of the pin/ball/bump on the chiplet. For example, pin A1 or pin 1.
-
-For every pin/ball/bump define the following {
-
-Parameter Name = "Pin_Name", units = N/A, Description = Name of the pin/ball/bump on the chiplet
-
-Parameter Name = "Signal_type", units = N/A, Description = Choose one from {Analog Input, Analog Output, Digital Input, Digital Output, Digital Input/Output, Power, Bypass, Reference, Ground, Clock, Xcvr, I2C, RF, DFT} .
-
-Parameter Name = "ftyp", units = MHz, Description = Typical Frequency of the signal.
-
-Parameter Name = "fmax", units = MHz, Description = Maximum Frequency of the signal.
-
-Parameter Name = "fmin", units = MHz, Description = Minimum Frequency of the signal.
-
-Parameter Name = "IO_mechanical_type", units = N/A, Description = Choose one from {solderball, ubump, land, lead}.
-
-Parameter Name = "Ball_Location_x", units = microns, Description = Relative to center of the chiplet, list the x coordinate of the ball location.
-
-Parameter Name = "Ball_Location_y", units = microns, Description = Relative to center of the chiplet, list the y coordinate of the ball location.
-
-Parameter Name = "Signal_group", units = N/A, Description = used for grouping such as a bus or a pair sharing similar contraints.
-
-Parameter Name = "Signal_group_index", units = N/A, Description = index of the pin in a group of signals.
-
-Parameter Name = "Netlist_name", units = N/A, Description = default netname used internally (schematic can override).
-
-Parameter Name = "Pin_Mode", units =N/A, Description = Index of Mode of operation.  Pins that are used for multiple usage can be described with multiple entries but each mode should have a unique mode index. Valid values include 0,1,2....
-
-Parameter Name = "ESD_type", units = N/A, Description = Describe any ESD anomaly for this pin.  For example some pin may need special design consideration for ESD purpose.
-
-Parameter Name = "Controlled_Impedance", units = Ohms , Description = If a controlled impedance is desired for the signal trace, list the value.
-
-Parameter Name = "Vdd_pin", units = N/A, Description = Pin name for the pin that is used as a VDD reference for this signal. Leave empty for VDD or GND pins.
-
-arameter Name = "Gnd_pin", units = N/A, Description = Pin name for the pin that is used as a GND reference for this signal. Leave empty for VDD or GND pins.
-
-Parameter Name = "Vmax", units = V, Description = Abs Max Voltage.
-
-Parameter Name = "Cmax", units = F, Description = Maximum recommended capacitance load (including self-capacitance) .
-
-Parameter Name = "Ctyp", units = F, Description = Typical load capacitance (includes self-capacitance).
-
-}
 
 
