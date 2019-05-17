@@ -4,9 +4,9 @@ Version: 1.0
 
 Date: May 16, 2019
 
-Author: Jawad Nasrullah
+Author: [Jawad Nasrullah](https://www.linkedin.com/in/jawadn/)
 
-zGlue Inc, 883 N Shoreline Blvd, C200, Mountain View, CA 94043, USA
+[zGlue Inc](http://www.zglue.com), 883 N Shoreline Blvd, C200, Mountain View, CA 94043, USA
 
 Contact: jawad@zglue.com
 
@@ -19,7 +19,7 @@ zGlue, Inc. developed a simple chiplet model for use in zGlue's Chipbuilder soft
 
 ## What is included in this Repository:
 
-*ZEF Specification (this file)
+*ZEF Specification
 
 *ZEF Copyleft License (ZEF License v. 1.0)
 
