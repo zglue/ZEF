@@ -1,0 +1,10 @@
+Pin_Number,Pin_Name,Signal_type,IS_Analog_Routable,IS_Digital_Routable,Frequency_Min (MHz),Frequency_Typical (MHz),Frequency_Max (MHz),IO_mechanical_type,Ball_Location_x (um),Ball_Location_y (um),Signal_group,Signal_group_index,Netlist_name,Pin_Mode,ESD_type,ESD_Rating(+/-V),Controlled_Impedance (Ohms),Vdd_Pin,Gnd_Pin,Vmax(V),Cmax (uF),Ctyp (uF)
+A1,GPOUT,OpenCollector,true,true,,,0.1,Solder Ball,-500,500,,0,BQ27426_GPOUT,,HBM,1500,,VDD,VSS,6,,
+A2,SDA,I2C,true,false,,,0.1,Solder Ball,0,500,,0,BQ27426_SDA,,HBM,1500,,VDD,VSS,6,,
+A3,SCL,Clock,true,false,,,0.1,Solder Ball,500,500,,0,BQ27426_SCL,,HBM,1500,,VDD,VSS,6,,
+B1,BIN,Digital Input,true,true,,,0.1,Solder Ball,-500,0,,0,BQ27426_BIN,,HBM,1500,,VDD,VSS,6,,
+B2,VSS,Ground,false,false,,,0.1,Solder Ball,0,0,,0,BQ27426_VSS,,HBM,1500,,VDD,VSS,6,,
+B3,VDD,Power,false,false,,,0.1,Solder Ball,500,0,,0,BQ27426_VDD,,HBM,1500,,VDD,VSS,6,,
+C1,SRP,Digital Input,true,true,,,0.1,Solder Ball,-500,-500,,0,BQ27426_SRP,,HBM,1500,,VDD,VSS,6,,
+C2,SRN,Digital Input,true,true,,,0.1,Solder Ball,0,-500,,0,BQ27426_SRN,,HBM,1500,,VDD,VSS,6,,
+C3,BAT,Power,false,false,,,0.1,Solder Ball,500,-500,,0,BQ27426_BAT,,HBM,1500,,VDD,VSS,6,,
